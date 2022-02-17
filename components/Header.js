@@ -3,8 +3,10 @@ import DelayedFadeIn from "../animations/DelayedFadeIn";
 import Nav from "./Nav";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { attributes, react as HomeContent } from "../content/home.md";
 
 export default function Header() {
+  let { popups } = attributes;
   return (
     <section
       id="Home"
@@ -35,9 +37,11 @@ export default function Header() {
           }}
         >
           <div className="self-center p-8 border shadow-lg bg-neutral-500/50 w-max backdrop-blur-sm shadow-neutral-700/70">
-            Next Popup:
-            <br />
-            -Monday Feb 28-
+            <h2>Next Pop-up:</h2>
+
+            {popups.map((popup, k) => (
+              <p key={k}>{popup.day}</p>
+            ))}
           </div>
         </motion.h1>
 

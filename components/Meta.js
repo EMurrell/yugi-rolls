@@ -34,6 +34,7 @@ export default function Meta() {
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest"></link>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </Head>
   );
 }

@@ -1,6 +1,8 @@
 import FadeUp from "../animations/FadeUp.js";
 import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/outline";
+import { Component } from "react";
+import { attributes, react as HomeContent } from "../content/home.md";
 
 const navigation = {
   social: [
@@ -34,6 +36,7 @@ const navigation = {
 };
 
 export default function Footer() {
+  let { popups } = attributes;
   return (
     <footer className="bg-white" aria-labelledby="footer-heading" id="Contact">
       <h2 id="footer-heading" className="sr-only">
@@ -63,13 +66,19 @@ export default function Footer() {
               Pickup Location and Hours:
             </h3>
             <ul role="list" className="mt-2 space-y-8 ">
-              <li>
-                Feb 14: <br />
-                4pm - 7pm
+              {/* <li>
+                {popups.day}: <br />
+                {popups.time}
                 <br />
-                1305 Wellington St West <br />
-                (Little Jo Berry's)
-              </li>
+                {popups.location}
+              </li> */}
+              {popups.map((popup, j) => (
+                <li key={j}>
+                  <p>{popup.day}</p>
+                  <p>{popup.time}</p>
+                  {popup.location}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="flex flex-col pt-8 border-t border-neutral-300 lg:pt-0 lg:w-1/3 lg:border-0">
